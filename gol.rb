@@ -11,6 +11,7 @@
 #each rule applies to each cell simultaneously
 
 board = Array.new(10){Array.new(10){0}}
+puts board.is_a? (Array)
 
 #Start a few off as 1
 board[2][2], board[2][3], board[2][4], board[3][3] = 1,1,1,1
@@ -36,7 +37,7 @@ end
 9 board[x+1][y+1]
 =end
 i = 1
-while i < 1000
+while i < 100
   board.each do |x|
     #check to see if this particular cell is dead or alive
     if x[i] == 1
@@ -53,3 +54,4 @@ while i < 1000
 
     i += 1
   end
+end
