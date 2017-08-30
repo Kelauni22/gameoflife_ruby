@@ -12,6 +12,10 @@
 
 board = Array.new(10){Array.new(10){0}}
 
+#Start a few off as 1
+board[2][2], board[2][3], board[2][4], board[3][3] = 1,1,1,1
+
+#Draw initial board
 for x in board
   print x
   puts ''
@@ -20,8 +24,13 @@ end
 #while loop to keep it going forever until the program quits
 
 #keep iterating over the entire board
-#board.each do |x|
-#  x.each do |y|
+=begin
+board.each do |x|
+  x.each do |y|
+    if y == 1 then puts y = true end
+  end
+end
+=end
 
 #If any cells around target are <= 1, make target 0
 
