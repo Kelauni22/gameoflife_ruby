@@ -1,3 +1,4 @@
+
 #Any live cell w/ fewer than two live neighbors dies
 #Any live cell w/ more than three live neighbors dies
 #Any live cell w/ 2 or 3 live neighbors lives
@@ -16,14 +17,14 @@ for x in board
   puts ''
 end
 
+#while loop to keep it going forever until the program quits
 
-
-#while loop
-  #array.each do |x|
-    #array.each do |y|
-      #if y == 1
+#keep iterating over the entire board
+#board.each do |x|
+#  x.each do |y|
 
 #If any cells around target are <= 1, make target 0
+
 
 #If any cells around target are > 3, make target 1
 
