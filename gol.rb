@@ -23,18 +23,33 @@ end
 
 #while loop to keep it going forever until the program quits
 
-#keep iterating over the entire board
+#iterate over the entire board for each "step"
 =begin
-board.each do |x|
-  x.each do |y|
-    if y == 1 then puts y = true end
-  end
-end
+1 board[x-1][y-1]
+2 board[x-1][y]
+3 board[x-1][y+1]
+4 board[x][y-1]
+5 board[x][y]
+6 board[x][y+1]
+7 board[x+1][y-1]
+8 board[x+1][y]
+9 board[x+1][y+1]
 =end
+i = 1
+while i < 1000
+  board.each do |x|
+    #check to see if this particular cell is dead or alive
+    if x[i] == 1
+      #If any cells around target are <= 1, make target 0
 
-#If any cells around target are <= 1, make target 0
+      #If any cells around target are > 3, make target 1
 
+      #If 2 or 3 cells around target are 1, make target 1
+    end
 
-#If any cells around target are > 3, make target 1
+    if x[i] == 0
+      #if any 3 cells around target are 1, make target 1
+    end
 
-#If 2 or 3 cells around target are 1, make target 1
+    i += 1
+  end
