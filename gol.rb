@@ -8,3 +8,26 @@
 #cells can be alive or dead
 #each cell has 8 neighbors
 #each rule applies to each cell simultaneously
+
+array = [][]
+i = 0
+while i < 21
+  array[] << 0
+  i += 1
+  while i < 21
+    array[i][] << 0
+    i += 1
+  end
+end
+print array
+
+#while loop
+  #array.each do |x|
+    #array.each do |y|
+      #if y == 1
+
+#If any cells around target are <= 1, make target 0
+
+#If any cells around target are > 3, make target 1
+
+#If 2 or 3 cells around target are 1, make target 1
