@@ -9,17 +9,14 @@
 #each cell has 8 neighbors
 #each rule applies to each cell simultaneously
 
-array = [][]
-i = 0
-while i < 21
-  array[] << 0
-  i += 1
-  while i < 21
-    array[i][] << 0
-    i += 1
-  end
+board = Array.new(10){Array.new(10){0}}
+
+for x in board
+  print x
+  puts ''
 end
-print array
+
+
 
 #while loop
   #array.each do |x|
