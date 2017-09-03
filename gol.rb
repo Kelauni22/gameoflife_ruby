@@ -25,22 +25,32 @@ end
 #while loop to keep it going forever until the program quits
 
 #iterate over the entire board for each "step"
-=begin
-1 board[x-1][y-1]
-2 board[x-1][y]
-3 board[x-1][y+1]
-4 board[x][y-1]
-5 board[x][y]
-6 board[x][y+1]
-7 board[x+1][y-1]
-8 board[x+1][y]
-9 board[x+1][y+1]
-=end
+
+#Make a function that checks the surrounding cells and returns how many are 1
+def check_surrounding_cells(x,y)
+  cells_array = [
+    board[x-1][y-1],
+    board[x-1][y],
+    board[x-1][y+1],
+    board[x][y-1],
+    board[x][y+1],
+    board[x+1][y-1],
+    board[x+1][y],
+    board[x+1][y+1]
+  ]
+  n = 0
+  for x in cells_array
+    n += 1 if x == 1
+    n
+  end
+end
+
 i = 1
-while i < 100
+while i < 100 #make this a while true later so that it runs infinitely
   board.each do |x|
+    x.each do |y|
     #check to see if this particular cell is dead or alive
-    if x[i] == 1
+      if y == 1
       #If any cells around target are <= 1, make target 0
 
       #If any cells around target are > 3, make target 1
@@ -48,7 +58,7 @@ while i < 100
       #If 2 or 3 cells around target are 1, make target 1
     end
 
-    if x[i] == 0
+    if y == 0
       #if any 3 cells around target are 1, make target 1
     end
 
