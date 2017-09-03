@@ -11,7 +11,6 @@
 #each rule applies to each cell simultaneously
 
 board = Array.new(10){Array.new(10){0}}
-puts board.is_a? (Array)
 
 #Start a few off as 1
 board[2][2], board[2][3], board[2][4], board[3][3] = 1,1,1,1
@@ -22,12 +21,8 @@ for x in board
   puts ''
 end
 
-#while loop to keep it going forever until the program quits
-
-#iterate over the entire board for each "step"
-
 #Make a function that checks the surrounding cells and returns how many are 1
-def check_surrounding_cells(x,y)
+def check_surrounding_cells(board,x,y)
   cells_array = [
     board[x-1][y-1],
     board[x-1][y],
@@ -39,18 +34,19 @@ def check_surrounding_cells(x,y)
     board[x+1][y+1]
   ]
   n = 0
-  for x in cells_array
-    n += 1 if x == 1
+  for cell in cells_array
+    n += 1 if cell == 1
     n
   end
 end
 
+#while loop to keep it going forever until the program quits
 i = 1
 while i < 100 #make this a while true later so that it runs infinitely
   board.each do |x|
     x.each do |y|
     #check number of alive/dead cells around this particular cell
-    check_surrounding_cells(x,y)
+    check_surrounding_cells(board,x,y)
     #check to see if this particular cell is dead or alive
       if y == 1
       #If <= 1 cells around target are 1, make target 0
