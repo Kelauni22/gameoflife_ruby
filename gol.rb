@@ -49,19 +49,21 @@ i = 1
 while i < 100 #make this a while true later so that it runs infinitely
   board.each do |x|
     x.each do |y|
+    #check number of alive/dead cells around this particular cell
+    check_surrounding_cells(x,y)
     #check to see if this particular cell is dead or alive
       if y == 1
-      #If any cells around target are <= 1, make target 0
-
-      #If any cells around target are > 3, make target 1
-
+      #If <= 1 cells around target are 1, make target 0
+      #If > 3 cells around target are 1 , make target 0
+        y == 0 if n <= 1 || n > 3
       #If 2 or 3 cells around target are 1, make target 1
-    end
+      end
 
-    if y == 0
-      #if any 3 cells around target are 1, make target 1
+      if y == 0
+        #if 3 cells around target are 1, make target 1
+        y == 1 if n == 3
+      end
     end
-
-    i += 1
   end
+  i += 1
 end
