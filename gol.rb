@@ -15,39 +15,39 @@ board = Array.new(10){Array.new(10){0}}
 #Start a few off as 1
 board[2][2], board[2][3], board[2][4], board[3][3] = 1,1,1,1
 
-#Draw initial board
-for x in board
-  print x
-  puts ''
-end
+
 
 #Make a function that checks the surrounding cells and returns how many are 1
-def check_surrounding_cells(board,x,y)
-  cells_array = [
-    board[x-1][y-1],
-    board[x-1][y],
-    board[x-1][y+1],
-    board[x][y-1],
-    board[x][y+1],
-    board[x+1][y-1],
-    board[x+1][y],
-    board[x+1][y+1]
-  ]
-  n = 0
-  for cell in cells_array
-    n += 1 if cell == 1
-    n
-  end
-end
+
+
+
 
 #while loop to keep it going forever until the program quits
 i = 1
-while i < 100 #make this a while true later so that it runs infinitely
-  board.each do |x|
-    x.each do |y|
+while i < 10 #make this a while true later so that it runs infinitely
+  #Draw initial board
+  for x in board
+    print x
+    puts ''
+  end
+  #interate over board
+  board.each_with_index do |x, x_index| #get row index number and value
+    x.each_with_index do |y, y_index| #get column index number and value
     #check number of alive/dead cells around this particular cell
-    check_surrounding_cells(board,x,y)
-    #check to see if this particular cell is dead or alive
+    if y == 1 then board[x_index][y_index] = 5 end
+=begin
+      cells_array = [
+        board[x_index-1][y_index-1],
+        board[x_index-1][y_index],
+        board[x_index-1][y_index+1],
+        board[x_index][y_index-1],
+        board[x_index][y_index+1],
+        board[x_index+1][y_index-1],
+        board[x_index+1][y_index],
+        board[x_index+1][y_index+1]
+      ]
+      n = cells_array.count(1)
+      #check to see if this particular cell is dead or alive
       if y == 1
       #If <= 1 cells around target are 1, make target 0
       #If > 3 cells around target are 1 , make target 0
@@ -59,6 +59,7 @@ while i < 100 #make this a while true later so that it runs infinitely
         #if 3 cells around target are 1, make target 1
         y == 1 if n == 3
       end
+=end
     end
   end
   i += 1
